@@ -9,7 +9,6 @@ class Server():
             self.sock.listen(1)
             conn,addr = self.sock.accept()
             print(addr)
-            print("Hello")
             while True:
                 data=conn.recv(1024)
                 if not data:
