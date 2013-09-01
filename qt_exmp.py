@@ -14,6 +14,11 @@ class MyWindow(QtGui.QWidget):
        traySignal = "activated(QSystemTrayIcon::ActivationReason)"
        self.connect(self.tray,QtCore.SIGNAL(traySignal),self.showProgr)
    def closeEvent(self,e):
+       result=QtGui.QMessageBox.question(self,"Accept exit","Are you want close programm?",QtGui.QMessageBox.Yes | QtGui.QMessageBox.No,QtGui.QMessageBox.No)
+       if result==QtGui.QMessageBox.Yes:
+           e.accept()
+           QtGui.QWidget.closeEvent(self,e)
+       else:
            e.ignore()
            self.hide()
            self.tray.show()
