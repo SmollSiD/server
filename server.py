@@ -17,6 +17,7 @@ class Server():
             if str=="xbmc_on":
                 os.startfile("xbmc")
             if str=="xbmc_off":
+                print("Error")
                 os.system("TASKKILL /IM xbmc.exe")
             print(str)
     def stopServer(self):
